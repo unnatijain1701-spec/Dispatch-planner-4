@@ -67,7 +67,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f1f5f9;color:var(--
 .setting-sub{font-size:11px;color:var(--text-muted)}
 input[type=number]{width:80px;padding:5px 8px;border:1px solid var(--gray-border);border-radius:var(--radius);font-size:13px;text-align:center}
 input[type=text],input[type=time],select{padding:6px 10px;border:1px solid var(--gray-border);border-radius:var(--radius);font-size:13px;width:100%}
-input[type=file]{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;clip:rect(0,0,0,0);border:0}
+input[type=file]{display:none}
 /* ROUTE CARDS */
 .routes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:16px}
 .route-card{background:var(--white);border:1px solid var(--gray-border);border-radius:var(--radius-lg);overflow:hidden;cursor:pointer;transition:all .2s;box-shadow:var(--shadow)}
@@ -178,7 +178,7 @@ input[type=file]{position:absolute;width:1px;height:1px;opacity:0;overflow:hidde
         <div class="upload-sub">Expected columns: <strong>outlet name</strong>, <strong>weight</strong> (kg)</div>
       </div>
     </label>
-    <input type="file" id="file-input" accept=".csv,.CSV" onchange="handleFile(event)"/>
+    <input type="file" id="file-input" accept=".csv,.CSV" onchange="handleFile(event)" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none"/>
   </div>
 
   <div id="upload-result" style="display:none">
@@ -1115,6 +1115,7 @@ function exportOpsExcel(){
       document.getElementById(`ops-return-${i}`)?.value||'',
       document.getElementById(`ops-avtype-${i}`)?.value||r.vehicle,
       document.getElementById(`ops-split-${i}`)?.value||''
+''
     ]);
   });
   const wb=XLSX.utils.book_new();
