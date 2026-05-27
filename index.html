@@ -171,13 +171,15 @@ input[type=file]{display:none}
   </div>
 
   <div class="card" style="margin-bottom:16px">
-    <label for="file-input" style="display:block;cursor:pointer">
-      <div class="upload-zone" id="upload-zone" ondragover="handleDrag(event,true)" ondragleave="handleDrag(event,false)" ondrop="handleDrop(event)">
-        <div class="upload-icon">📂</div>
-        <div class="upload-title">Drop your orders file here or click to browse</div>
-        <div class="upload-sub">Accepted: <strong>CSV</strong> or <strong>Excel (.xlsx / .xls)</strong> · Columns needed: <strong>outlet name</strong>, <strong>weight</strong> (kg)</div>
-      </div>
-    </label>
+    <div class="upload-zone" id="upload-zone"
+         onclick="document.getElementById('file-input').click()"
+         ondragover="handleDrag(event,true)"
+         ondragleave="handleDrag(event,false)"
+         ondrop="handleDrop(event)">
+      <div class="upload-icon">📂</div>
+      <div class="upload-title">Drop your orders file here or click to browse</div>
+      <div class="upload-sub">Accepted: <strong>CSV</strong> or <strong>Excel (.xlsx / .xls)</strong> &nbsp;·&nbsp; Columns: <strong>outlet name</strong>, <strong>weight</strong> (kg)</div>
+    </div>
     <input type="file" id="file-input" accept=".csv,.CSV,.xlsx,.xls,.XLSX,.XLS" onchange="handleFile(event)"/>
   </div>
 
