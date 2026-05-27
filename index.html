@@ -67,7 +67,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f1f5f9;color:var(--
 .setting-sub{font-size:11px;color:var(--text-muted)}
 input[type=number]{width:80px;padding:5px 8px;border:1px solid var(--gray-border);border-radius:var(--radius);font-size:13px;text-align:center}
 input[type=text],input[type=time],select{padding:6px 10px;border:1px solid var(--gray-border);border-radius:var(--radius);font-size:13px;width:100%}
-input[type=file]{display:none}
+input[type=file]{display:none} #file-input{display:block!important;position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0}
 /* ROUTE CARDS */
 .routes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:16px}
 .route-card{background:var(--white);border:1px solid var(--gray-border);border-radius:var(--radius-lg);overflow:hidden;cursor:pointer;transition:all .2s;box-shadow:var(--shadow)}
@@ -171,13 +171,11 @@ input[type=file]{display:none}
   </div>
 
   <div class="card" style="margin-bottom:16px">
-    <label for="file-input" style="display:block;cursor:pointer">
-      <div class="upload-zone" id="upload-zone" ondragover="handleDrag(event,true)" ondragleave="handleDrag(event,false)" ondrop="handleDrop(event)">
+    <div class="upload-zone" id="upload-zone" onclick="document.getElementById('file-input').click()" ondragover="handleDrag(event,true)" ondragleave="handleDrag(event,false)" ondrop="handleDrop(event)">
         <div class="upload-icon">📂</div>
         <div class="upload-title">Drop your orders file here or click to browse</div>
         <div class="upload-sub">Accepted: <strong>CSV</strong> or <strong>Excel (.xlsx / .xls)</strong> · Columns needed: <strong>outlet name</strong>, <strong>weight</strong> (kg)</div>
       </div>
-    </label>
     <input type="file" id="file-input" accept=".csv,.CSV,.xlsx,.xls,.XLSX,.XLS" onchange="handleFile(event)"/>
   </div>
 
